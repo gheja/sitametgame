@@ -1,0 +1,7 @@
+addons:
+  apt:
+    packages:
+    - wine
+    - zip
+script:
+  - ./build.sh src
