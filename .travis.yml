@@ -5,3 +5,13 @@ addons:
     - zip
 script:
   - ./build.sh src
+before_deploy:
+  - git config --local user.name "Gabor Heja (Travis Deploy)"
+  - git config --local user.email "gheja@travis-ci"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+  provider: releases
+  api_key: secure: "lxVq9K5YFBK39A0xys8EPONLlutybOzmRFJ7YaSEyyqJ628v1ohDogYHFZBmTFH5Ar6meBd8yuRfqt1Vr032PLvzNcdAgv0dn1IYzq7eYJW6Sk76HkDZc+FJjVgUzPWM5Rdv0VvgDtXxQPv6RLtRJdyz1GL0yK0Lb9+Fdvji4j4tT0XOBKcAf8ZtF46f6/Na1zSVIK2YKn+otwCygaGSLJulJ7F62p/fUCJZte1T5N+q1o7iDLIuyyzft8x0DXugRkgI8MZXDoaOpfu1+MuFx/h22SsohSxmQeYBtW78wDFfrgZU3+IqGPWKHKw8S1xT/AaSOgYaOBTvuQ7/rPfc9xVotaQk65tfiSTVieOkr7lFdmFU1G7ZgJnK1hcmZIIKECaZMfUcJlTriun0JoHRabC0W8PaIxiSoveAb8Q+jaJOqAUoq7yeEaRb43cNlRSJQZ8V2fXGs1IO7dv+CVj3BLp64vr+WKCmlw4uwG8D8MjVldKZvILxNRs7AqkGWm+BsaEvkGwWxce0rbCV0vLYek6WKa/cIf4VHnr07RSBSn8ALrv2AHMnheHIkhTt/tFQpo2PLDmwkpLF0nA/dShA1GCHTPIVvmCB4slHtgnXbyrgU12gVIYUpiao/s6rbHQuibu2EgrZ0tchHsCwZhlnb7iw7u8mF1mZ+aSgsiz/JQs="
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
