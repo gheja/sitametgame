@@ -3,6 +3,7 @@ addons:
     packages:
     - wine
     - zip
+    - nsis
 script:
   - ./build.sh src
 before_deploy:
