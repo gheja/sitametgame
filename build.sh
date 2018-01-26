@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# exit on the first error
+set -e
+
 ./builders/android-builder/precheck.sh
 ./builders/nwjs-builder/precheck.sh
 ./builders/zip-builder/precheck.sh
