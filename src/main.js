@@ -1,7 +1,7 @@
 // Using "Tileset ver.3 [Free]" by Magiscarf
 // https://magiscarf.deviantart.com/art/Tileset-ver-3-Free-690477146
 
-let _zoom = 2;
+let _zoom = 1;
 
 let _windowWidth;
 let _windowHeight;
